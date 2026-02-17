@@ -214,3 +214,31 @@ body{
   .annex-grid{grid-template-columns: 1fr}
   .annex-tag{white-space:normal; text-align:right}
 }
+
+/* Accordion for long form */
+.accordion details{
+  border:1px solid var(--line);
+  border-radius: var(--r12);
+  background: rgba(255,255,255,.03);
+  margin-top:10px;
+  overflow:hidden;
+}
+.accordion summary{
+  cursor:pointer;
+  padding:12px 14px;
+  font-weight:900;
+  list-style:none;
+  user-select:none;
+}
+.accordion summary::-webkit-details-marker{display:none;}
+.accordion summary:after{
+  content:"▾";
+  float:right;
+  opacity:.7;
+}
+.accordion details[open] summary:after{content:"▴";}
+.acc-body{
+  padding: 0 14px 14px 14px;
+}
+.acc-body p{margin:10px 0}
+.acc-body ul{margin:8px 0 0 18px}
