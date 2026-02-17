@@ -156,3 +156,61 @@ body{
   .card{box-shadow:none}
   a{color:#000; text-decoration:underline}
 }
+
+/* Tables (Bauamt-Kurzantworten) */
+.table-wrap{overflow:auto; margin-top:12px; border:1px solid var(--line); border-radius: var(--r16);}
+.ds-table{width:100%; border-collapse:collapse; min-width:760px; background: rgba(16,18,30,.35);}
+.ds-table th, .ds-table td{padding:12px 12px; border-bottom:1px solid var(--line); vertical-align:top;}
+.ds-table th{font-weight:900; text-align:left; background: rgba(245,182,46,.10);}
+.ds-table td{color: var(--text);}
+.ds-table tbody tr:hover{background: rgba(255,255,255,.03);}
+
+/* Better typography inside cards */
+.card h3{margin:14px 0 8px; font-size:16px}
+.card ul{margin:8px 0 10px 20px}
+.card li{margin:6px 0}
+
+/* Annex cards */
+.annex-card{
+  margin-top:14px;
+  border:1px solid var(--line);
+  border-radius: var(--r16);
+  background: rgba(16,18,30,.38);
+  overflow:hidden;
+}
+.annex-head{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  padding:12px 14px;
+  background: rgba(245,182,46,.10);
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+.annex-title{font-weight:900}
+.annex-tag{font-size:12px; color:var(--muted); white-space:nowrap}
+.annex-body{padding:14px}
+.annex-grid{
+  margin-top:12px;
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap:12px;
+}
+.annex-k{font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:.10em; margin-bottom:6px}
+.annex-v{font-size:14px; color:var(--text); opacity:.96}
+.pdf-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:10px;
+  padding:10px 12px;
+  border:1px solid var(--line);
+  border-radius: var(--r12);
+  background: rgba(255,255,255,.03);
+}
+.pdf-link{color:var(--accent); font-weight:900; text-decoration:none}
+.pdf-link:hover{text-decoration:underline}
+
+@media (max-width: 980px){
+  .annex-grid{grid-template-columns: 1fr}
+  .annex-tag{white-space:normal; text-align:right}
+}
