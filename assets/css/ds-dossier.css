@@ -242,3 +242,17 @@ body{
 }
 .acc-body p{margin:10px 0}
 .acc-body ul{margin:8px 0 0 18px}
+
+/* Scroll-Spy active state */
+.nav-item.active{
+  border-color: rgba(245,182,46,.55);
+  background: rgba(245,182,46,.10);
+  box-shadow: 0 0 0 1px rgba(245,182,46,.10) inset;
+}
+/* Ensure long menus remain usable */
+.side-nav{
+  position: sticky;
+  top: 74px; /* below header */
+  max-height: calc(100vh - 74px);
+  overflow: auto;
+}
