@@ -1,19 +1,194 @@
 
+/* ===============================
+   Doggy Style Dossier – PRO Print
+   Ziel: sauberes Behörden-PDF
+   =============================== */
+
+@page {
+  size: A4;
+  margin: 14mm 14mm 16mm 14mm;
+}
+
+/* Print Reset / Typography */
 @media print {
-    #pdfExportBtn {
-        display: none !important;
-    }
+  /* Hide interactive UI */
+  #pdfExportBtn,
+  .side-nav,
+  .sidebar,
+  nav,
+  .glass-header,
+  .no-print {
+    display: none !important;
+  }
 
-    nav, .sidebar, .no-print {
-        display: none !important;
-    }
+  /* Body */
+  html, body {
+    background: #fff !important;
+    color: #111 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    font-size: 11pt;
+    line-height: 1.35;
+  }
 
-    body {
-        background: #fff !important;
-        color: #000 !important;
-    }
+  /* Space for print header */
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
 
-    section {
-        page-break-inside: avoid;
-    }
+  /* Print header */
+  .print-header {
+    display: block !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 8mm 14mm 0 14mm;
+    background: #fff;
+    z-index: 9999;
+  }
+
+  .print-header__brand {
+    display: flex;
+    align-items: center;
+    gap: 10mm;
+  }
+
+  .print-logo {
+    height: 18mm;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .print-brandtext {
+    flex: 1 1 auto;
+  }
+
+  .print-title {
+    font-weight: 800;
+    font-size: 13pt;
+    letter-spacing: .2px;
+  }
+
+  .print-sub {
+    margin-top: 1.5mm;
+    font-size: 10pt;
+    color: #333;
+  }
+
+  .print-divider {
+    margin-top: 4mm;
+    height: 0;
+    border-top: 1px solid #bbb;
+  }
+
+  /* Push content below fixed header */
+  .app-shell,
+  .main,
+  main {
+    margin-top: 34mm !important;
+  }
+
+  /* Cards / Sections */
+  .card,
+  section.card {
+    background: #fff !important;
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+    border-radius: 6px !important;
+    padding: 8mm 8mm 7mm 8mm !important;
+    margin: 0 0 8mm 0 !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Headings: more “gutachten-like” */
+  h1, h2, h3 {
+    color: #111 !important;
+    break-after: avoid;
+    page-break-after: avoid;
+    margin-top: 0 !important;
+  }
+  h2 {
+    font-size: 14pt !important;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 2mm;
+    margin-bottom: 4mm;
+  }
+  h3 {
+    font-size: 12pt !important;
+    margin-bottom: 3mm;
+  }
+
+  /* Figures */
+  figure, .ds-figure {
+    margin: 0 0 5mm 0 !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+    border-radius: 4px !important;
+  }
+
+  figcaption {
+    margin-top: 2.5mm !important;
+    font-size: 9.8pt !important;
+    color: #222 !important;
+  }
+
+  /* Annex grids */
+  .annex-grid, .annex-grid-wide {
+    display: block !important; /* for safest print readability */
+  }
+  .annex-item {
+    border: 1px solid #e3e3e3 !important;
+    border-radius: 6px !important;
+    padding: 4mm 4mm 3mm 4mm !important;
+    margin: 0 0 3mm 0 !important;
+    background: #fff !important;
+  }
+  .annex-k {
+    font-size: 8.8pt !important;
+    letter-spacing: .12em !important;
+    text-transform: uppercase !important;
+    color: #444 !important;
+    margin-bottom: 1.5mm !important;
+  }
+  .annex-v {
+    font-size: 10.6pt !important;
+    color: #111 !important;
+  }
+
+  /* Callouts -> like “Bewertung” boxes */
+  .callout {
+    border: 1px solid #d6d6d6 !important;
+    border-left: 4px solid #999 !important;
+    background: #fff !important;
+    border-radius: 6px !important;
+    padding: 4mm 4mm 3mm 4mm !important;
+    margin: 4mm 0 0 0 !important;
+    break-inside: avoid;
+  }
+  .callout-title {
+    font-weight: 800 !important;
+    margin-bottom: 1.5mm !important;
+  }
+  .callout-text {
+    color: #111 !important;
+  }
+
+  /* Page breaks: start Anlagen on new page if anchor exists */
+  #anlagen, #anlagen-bilder, #anlagen-plaene {
+    break-before: page;
+    page-break-before: always;
+  }
+
+  /* Links printed as text */
+  a[href]:after {
+    content: "";
+  }
 }
