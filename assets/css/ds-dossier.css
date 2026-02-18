@@ -285,20 +285,18 @@ body{
   line-height: 1.45;
 }
 
-/* Wider, lesbarer Anlagen-Grid (A1 etc.) */
+/* Wider, lesbarer Anlagen-Grid (A1–A6) */
 .annex-grid.annex-grid-wide{
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 @media (max-width: 1100px){
   .annex-grid.annex-grid-wide{ grid-template-columns: 1fr; }
 }
-.ds-figure figcaption{
-  margin-top: 10px;
-  font-size: 13px;
-  line-height: 1.45;
-  opacity: .92;
+.ds-figure img{
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
-
 .ds-source{
   opacity:.78;
   font-size: 12px;
