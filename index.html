@@ -6,22 +6,28 @@
   <title>Doggy Style · Betriebsdossier (§11 / Bauamt)</title>
   <meta name="robots" content="noindex,nofollow" />
   <link rel="stylesheet" href="assets/css/ds-dossier.css" />
-  <link rel="stylesheet" href="print.css" media="print" />
+  <link rel="stylesheet" href="print.css" media="print">
 </head>
 
 <body>
-    
-    <!-- Print-only header for professional PDF export -->
-    <div class="print-header" aria-hidden="true">
-      <div class="print-header__brand">
-        <img class="print-logo" src="assets/img/logo.png" alt="Doggy Style Logo" />
-        <div class="print-brandtext">
-          <div class="print-title">Doggy Style Hundepension · Betriebsdossier</div>
-          <div class="print-sub">Bauantrag / Immissionsschutz · §11 TierSchG · Stand: 18.02.2026</div>
-        </div>
-      </div>
-      <div class="print-divider"></div>
+<!-- PRINT HEADER/FOOTER (nur für PDF/Print) -->
+<div class="print-header print-only">
+  <div class="print-brand">
+    <img class="print-logo" src="assets/img/logo.png" alt="Doggy Style Logo">
+    <div class="print-titles">
+      <div class="print-title">Doggy Style – Betriebsdossier</div>
+      <div class="print-sub">Hundepension · §11 TierSchG · Immissionsschutz</div>
     </div>
+  </div>
+  <div class="print-meta">
+    <div>Stand: 18.02.2026</div>
+    <div>Standort: Im Moos 4 · 88167 Stiefenhofen</div>
+  </div>
+</div>
+<div class="print-footer print-only">
+  <div class="print-footer-left">Hundepension „Doggy Style“ · Raphael Boch</div>
+  <div class="print-footer-right">Seite <span class="print-page"></span></div>
+</div>
 
   
   <header class="glass-header">
@@ -36,8 +42,8 @@
     <div class="header-actions">
       
       <a class="ds-btn" href="#anlagen">Anlagen</a>
-      <button class="ds-btn" id="btnPdfExport" type="button" title="Seite als PDF speichern">Als PDF speichern</button>
-    </div>
+    <button class="ds-btn ds-btn-secondary" id="exportPdfBtn" type="button">Als PDF speichern</button>
+        </div>
   </header>
 
   <div class="app-shell">
@@ -708,72 +714,93 @@ Das Konzept ist fachlich durchdacht, standortangepasst und tierschutzkonform.</p
   <h2>🖼️ Anlagen – Bilder (mit Kurzbewertung)</h2>
 
   
-
 <div class="annex-card">
   <div class="annex-head">
-    <div class="annex-title">Abbildung A1 – Luftaufnahme & Nachbarschaftsübersicht</div>
-    <div class="annex-tag">Hofstellen · Tierhaltung · Distanz · Umfeldcharakter</div>
+    <div class="annex-title">Abbildung A1 – Luftaufnahme – Lage, Umfeld und Abstandswirkung</div>
+    <div class="annex-tag">Lage · Umfeldcharakter · Abstandswirkung</div>
   </div>
 
   <div class="annex-body">
     <figure class="ds-figure">
-      <img src="assets/img/nachbarn_uebersicht.jpg" alt="Luftaufnahme & Nachbarschaftsübersicht" />
+      <img src="assets/img/luftaufnahme.jpg" alt="Luftaufnahme – Lage, Umfeld und Abstandswirkung" />
       <figcaption>
-        <strong>A1:</strong> Übersichtsluftbild/Kartendarstellung der Hoflage und der direkten Nachbarschaft (Hofstellen/Anwesen) rund um den Standort – mit Entfernungsangaben.
-        <span class="ds-source">Quelle: Apple Karten.</span>
+        <strong>A1:</strong> Luftaufnahme mit Markierung des Standorts. Dient zur Einordnung der ländlichen Streulage, der räumlichen Trennung zu Nachbaranwesen und der Abstandswirkung.
+        <span class="ds-source">Quelle: Apple Karten (Screenshot).</span>
       </figcaption>
     </figure>
 
     <div class="annex-grid annex-grid-wide">
       <div class="annex-item">
-        <div class="annex-k">Beschreibung</div>
-        <div class="annex-v">
-          Darstellung der Hoflage, Einbindung in den ländlichen Raum sowie der räumlichen Trennung zu Nachbaranwesen.
-          Die Übersicht bildet die Grundlage für die nachfolgenden Einzelfall-Abbildungen A3–A6.
-        </div>
+        <div class="annex-k">Entfernung</div>
+        <div class="annex-v"><strong>—</strong> (Luftlinie aus Kartendarstellung).</div>
       </div>
 
       <div class="annex-item">
-        <div class="annex-k">Fachliche Einordnung</div>
-        <div class="annex-v">
-          Überwiegend <strong>landwirtschaftliche Hofstellen mit Tierhaltung</strong>; Tierpräsenz im Umfeld ist gebietsüblich.
-          Es besteht <strong>kein relevanter Durchgangs-/Wanderverkehr</strong> als dauerhafte Reizquelle.
-        </div>
+        <div class="annex-k">Gebietscharakter / Hofstruktur</div>
+        <div class="annex-v">Ländliche Streulage; Hofstellen mit Tierhaltung prägen den Nahbereich; keine urbane Verdichtung.</div>
       </div>
 
       <div class="annex-item">
-        <div class="annex-k">Relevanz für Immissionsschutz</div>
-        <div class="annex-v">
-          Distanz, Gebäudeeinbindung und Vegetation wirken dämpfend. Entscheidender Zusatzfaktor ist die betriebliche
-          Stressprävention (kleine Gruppen, kurze beaufsichtigte Freilauf-Slots, Nacht-Ruhe innen).
-          Die Übersicht stützt damit die <strong>Abstandswirkung</strong> und die fehlende urbane Verdichtung.
-        </div>
+        <div class="annex-k">Hundehaltung</div>
+        <div class="annex-v">—</div>
       </div>
 
       <div class="annex-item">
-        <div class="annex-k">Relevanz für §11 TierSchG</div>
+        <div class="annex-k">Immissionsschutz – fachliche Einordnung</div>
         <div class="annex-v">
-          Ruhige, reizreduzierte Lage unterstützt tierschutzgerechte Unterbringung (Ruhe/Schlaf) und eine konsequente
-          Strukturierung des Tagesablaufs ohne Dauerpublikumsströme.
+          Landwirtschaftlich geprägtes Umfeld mit gebietsüblicher Tierhaltung. Keine dauerhaft relevanten Publikums-/Wanderströme als Reizquelle.
+          Distanz, Gebäudeeinbindung und Vegetation wirken zusätzlich dämpfend. Die betriebliche Führung (kleine Gruppen, strukturierte Slots, Nacht-Ruhe innen)
+          reduziert Bellanlässe präventiv.
         </div>
-      </div>
-    </div>
-
-    <div class="callout" style="margin-top:14px;">
-      <div class="callout-title">Zusammenfassende Einschätzung</div>
-      <div class="callout-text">
-        Das Standortumfeld ist ländlich und tierhaltungsgeprägt. In Kombination mit konservativer Kapazitätssteuerung,
-        klaren Ruhezeiten sowie kurzen, beaufsichtigten Aktivitätsfenstern ist eine <strong>hohe Standortverträglichkeit</strong>
-        nachvollziehbar darstellbar.
       </div>
     </div>
   </div>
 </div>
 
 
-
   
+<div class="annex-card">
+  <div class="annex-head">
+    <div class="annex-title">Abbildung A2 – Nachbarschaft – Hofstellen/Anwesen (Übersicht)</div>
+    <div class="annex-tag">Hofstellen · Tierhaltung · Distanz · Umfeldcharakter</div>
+  </div>
 
+  <div class="annex-body">
+    <figure class="ds-figure">
+      <img src="assets/img/nachbarn_uebersicht.jpg" alt="Nachbarschaft – Hofstellen/Anwesen (Übersicht)" />
+      <figcaption>
+        <strong>A2:</strong> Übersicht der direkten Nachbarschaft rund um den Standort inklusive Entfernungsangaben und Umfeldcharakter.
+        <span class="ds-source">Quelle: Apple Karten (Screenshot).</span>
+      </figcaption>
+    </figure>
+
+    <div class="annex-grid annex-grid-wide">
+      <div class="annex-item">
+        <div class="annex-k">Entfernung</div>
+        <div class="annex-v"><strong>— (Übersicht)</strong> (Luftlinie aus Kartendarstellung).</div>
+      </div>
+
+      <div class="annex-item">
+        <div class="annex-k">Gebietscharakter / Hofstruktur</div>
+        <div class="annex-v">Überwiegend landwirtschaftliche Hofstellen mit Tierhaltung; keine dauerhaften Besucherströme als Dauerauslöser.</div>
+      </div>
+
+      <div class="annex-item">
+        <div class="annex-k">Hundehaltung</div>
+        <div class="annex-v">Im Umfeld existiert Hundehaltung (u. a. Auf der Höhe 9 und Auf der Höhe 11); Hunde sind standorttypisch bekannt.</div>
+      </div>
+
+      <div class="annex-item">
+        <div class="annex-k">Immissionsschutz – fachliche Einordnung</div>
+        <div class="annex-v">
+          Landwirtschaftlich geprägtes Umfeld mit gebietsüblicher Tierhaltung. Keine dauerhaft relevanten Publikums-/Wanderströme als Reizquelle.
+          Distanz, Gebäudeeinbindung und Vegetation wirken zusätzlich dämpfend. Die betriebliche Führung (kleine Gruppen, strukturierte Slots, Nacht-Ruhe innen)
+          reduziert Bellanlässe präventiv.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
   
@@ -1048,21 +1075,6 @@ Das Konzept ist fachlich durchdacht, standortangepasst und tierschutzkonform.</p
   </div>
 
   <script src="assets/js/ds-dossier.js"></script>
-  <script>
-    (function(){
-      function bind(){
-        var btn = document.getElementById("btnPdfExport");
-        if(!btn) return;
-        btn.addEventListener("click", function(){
-          window.print();
-        });
-      }
-      if(document.readyState === "loading"){
-        document.addEventListener("DOMContentLoaded", bind);
-      } else {
-        bind();
-      }
-    })();
-  </script>
+  <script src="pdf-export.js"></script>
 </body>
 </html>

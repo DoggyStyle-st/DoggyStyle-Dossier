@@ -1,194 +1,81 @@
-
-/* ===============================
-   Doggy Style Dossier – PRO Print
-   Ziel: sauberes Behörden-PDF
-   =============================== */
-
-@page {
-  size: A4;
-  margin: 14mm 14mm 16mm 14mm;
-}
-
-/* Print Reset / Typography */
+/* Doggy Style Dossier – Print/PDF Professional Layout */
 @media print {
-  /* Hide interactive UI */
-  #pdfExportBtn,
-  .side-nav,
-  .sidebar,
-  nav,
-  .glass-header,
-  .no-print {
-    display: none !important;
-  }
+  :root { color-scheme: light; }
+  @page { size: A4; margin: 14mm 12mm 14mm 12mm; }
 
-  /* Body */
-  html, body {
-    background: #fff !important;
-    color: #111 !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-    font-size: 11pt;
-    line-height: 1.35;
-  }
+  body { background: #fff !important; color: #000 !important;
+         -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 
-  /* Space for print header */
-  body {
-    margin: 0 !important;
-    padding: 0 !important;
-  }
+  /* hide app chrome */
+  .glass-header, .side-nav { display: none !important; }
+  .header-actions, .ds-btn, .no-print { display: none !important; }
 
-  /* Print header */
-  .print-header {
-    display: block !important;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    padding: 8mm 14mm 0 14mm;
-    background: #fff;
-    z-index: 9999;
-  }
+  /* show print only */
+  .print-only { display: block !important; }
+  .screen-only { display: none !important; }
 
-  .print-header__brand {
-    display: flex;
-    align-items: center;
-    gap: 10mm;
-  }
+  /* layout reset */
+  .app-shell { display: block !important; }
+  .content { margin: 0 !important; padding: 0 !important; }
 
-  .print-logo {
-    height: 18mm;
-    width: auto;
-    object-fit: contain;
-  }
-
-  .print-brandtext {
-    flex: 1 1 auto;
-  }
-
-  .print-title {
-    font-weight: 800;
-    font-size: 13pt;
-    letter-spacing: .2px;
-  }
-
-  .print-sub {
-    margin-top: 1.5mm;
-    font-size: 10pt;
-    color: #333;
-  }
-
-  .print-divider {
-    margin-top: 4mm;
-    height: 0;
-    border-top: 1px solid #bbb;
-  }
-
-  /* Push content below fixed header */
-  .app-shell,
-  .main,
-  main {
-    margin-top: 34mm !important;
-  }
-
-  /* Cards / Sections */
-  .card,
-  section.card {
+  /* cards -> clean boxes */
+  .card, .panel, .glass, .glass-card {
     background: #fff !important;
     box-shadow: none !important;
-    border: 1px solid #ddd !important;
-    border-radius: 6px !important;
-    padding: 8mm 8mm 7mm 8mm !important;
-    margin: 0 0 8mm 0 !important;
-    break-inside: avoid;
-    page-break-inside: avoid;
+  }
+  .card { border: 1px solid #D9D9D9 !important; }
+
+  h1, h2, h3, h4 { color: #000 !important; }
+  a { color: #000 !important; text-decoration: none !important; }
+
+  /* fixed header/footer */
+  .print-header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    padding: 0 0 6mm 0;
+    border-bottom: 1px solid #E6E6E6;
+    background: #fff;
+  }
+  .print-brand { display: flex; align-items: center; gap: 6mm; }
+  .print-logo { width: 18mm; height: 18mm; object-fit: contain; }
+  .print-title { font-size: 12.5pt; font-weight: 700; }
+  .print-sub { font-size: 9pt; color: #333; }
+  .print-meta { margin-top: 2mm; font-size: 8pt; color: #444; display:flex; justify-content: space-between; gap: 6mm; }
+
+  .print-footer {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    padding: 4mm 0 0 0;
+    border-top: 1px solid #E6E6E6;
+    background: #fff;
+    font-size: 8pt; color: #444;
+    display:flex; justify-content: space-between;
   }
 
-  /* Headings: more “gutachten-like” */
-  h1, h2, h3 {
-    color: #111 !important;
-    break-after: avoid;
-    page-break-after: avoid;
-    margin-top: 0 !important;
-  }
-  h2 {
-    font-size: 14pt !important;
-    border-bottom: 1px solid #e0e0e0;
-    padding-bottom: 2mm;
-    margin-bottom: 4mm;
-  }
-  h3 {
-    font-size: 12pt !important;
-    margin-bottom: 3mm;
-  }
+  /* Make room for fixed header/footer */
+  body { padding-top: 28mm !important; padding-bottom: 14mm !important; }
 
-  /* Figures */
-  figure, .ds-figure {
-    margin: 0 0 5mm 0 !important;
-    break-inside: avoid;
-    page-break-inside: avoid;
-  }
+  /* Cover page */
+  .print-cover { page-break-after: always; margin-top: -18mm; }
+  .print-cover-inner { padding-top: 18mm; text-align: center; }
+  .print-cover-logo { width: 45mm; height: 45mm; object-fit: contain; margin: 0 auto 6mm auto; display:block; }
+  .print-cover h1 { margin: 0 0 6mm 0; font-size: 20pt; letter-spacing: 0.2pt; }
+  .print-cover-lines { text-align: left; max-width: 170mm; margin: 0 auto; font-size: 10.5pt; }
+  .print-cover-lines div { padding: 1.5mm 0; border-bottom: 1px dashed #E6E6E6; }
+  .print-cover-note { max-width: 170mm; margin: 8mm auto 0 auto; font-size: 10.5pt;
+                      padding: 4mm; border: 1px solid #D9D9D9; background: #FAFAFA; }
+  .print-cover-bar { height: 6mm; margin-top: 10mm; background: #111; }
 
-  img {
-    max-width: 100% !important;
-    height: auto !important;
-    border-radius: 4px !important;
-  }
+  /* Tables */
+  table { width: 100% !important; border-collapse: collapse !important; }
+  th, td { border: 1px solid #D9D9D9 !important; padding: 2.5mm !important; vertical-align: top; }
+  th { background: #F3F3F3 !important; }
 
-  figcaption {
-    margin-top: 2.5mm !important;
-    font-size: 9.8pt !important;
-    color: #222 !important;
-  }
-
-  /* Annex grids */
-  .annex-grid, .annex-grid-wide {
-    display: block !important; /* for safest print readability */
-  }
-  .annex-item {
-    border: 1px solid #e3e3e3 !important;
-    border-radius: 6px !important;
-    padding: 4mm 4mm 3mm 4mm !important;
-    margin: 0 0 3mm 0 !important;
-    background: #fff !important;
-  }
-  .annex-k {
-    font-size: 8.8pt !important;
-    letter-spacing: .12em !important;
-    text-transform: uppercase !important;
-    color: #444 !important;
-    margin-bottom: 1.5mm !important;
-  }
-  .annex-v {
-    font-size: 10.6pt !important;
-    color: #111 !important;
-  }
-
-  /* Callouts -> like “Bewertung” boxes */
-  .callout {
-    border: 1px solid #d6d6d6 !important;
-    border-left: 4px solid #999 !important;
-    background: #fff !important;
-    border-radius: 6px !important;
-    padding: 4mm 4mm 3mm 4mm !important;
-    margin: 4mm 0 0 0 !important;
-    break-inside: avoid;
-  }
-  .callout-title {
-    font-weight: 800 !important;
-    margin-bottom: 1.5mm !important;
-  }
-  .callout-text {
-    color: #111 !important;
-  }
-
-  /* Page breaks: start Anlagen on new page if anchor exists */
-  #anlagen, #anlagen-bilder, #anlagen-plaene {
-    break-before: page;
-    page-break-before: always;
-  }
-
-  /* Links printed as text */
-  a[href]:after {
-    content: "";
-  }
+  /* Images + captions */
+  img { max-width: 100% !important; height: auto !important; }
+  .figure, .img-card { break-inside: avoid; page-break-inside: avoid; }
+  .img-caption { font-size: 9pt !important; color: #222 !important; margin-top: 2mm !important;
+                 border-top: 1px solid #E6E6E6; padding-top: 2mm; }
 }
+
+@media screen { .print-only { display: none; } }
