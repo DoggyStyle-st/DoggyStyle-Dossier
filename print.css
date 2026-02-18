@@ -1,0 +1,19 @@
+
+@media print {
+    #pdfExportBtn {
+        display: none !important;
+    }
+
+    nav, .sidebar, .no-print {
+        display: none !important;
+    }
+
+    body {
+        background: #fff !important;
+        color: #000 !important;
+    }
+
+    section {
+        page-break-inside: avoid;
+    }
+}
